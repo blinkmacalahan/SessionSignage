@@ -1,0 +1,12 @@
+.gradle
+*.iml
+.idea/
+build/
+out/
+local.properties
+.DS_Store
+xcuserdata/
+Pods/
+/captures
+.externalNativeBuild
+.cxx
