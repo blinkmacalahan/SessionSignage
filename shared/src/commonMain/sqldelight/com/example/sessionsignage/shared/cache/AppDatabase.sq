@@ -4,6 +4,7 @@ import com.example.sessionsignage.shared.sessionEntities.Tag;
 import com.example.sessionsignage.shared.sessionEntities.SeatingInfo;
 
 CREATE TABLE Session (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 name TEXT NOT NULL,
 startTime TEXT NOT NULL,
 endTime TEXT NOT NULL,
@@ -27,6 +28,11 @@ selectAllSessions:
 SELECT Session.*
 FROM Session;
 
+session:
+SELECT Session.*
+FROM Session
+WHERE Session.id = ?;
+
 selectAllSessionOverviews:
-SELECT Session.name, Session.startTime, Session.endTime, Session.description
+SELECT Session.id, Session.name, Session.startTime, Session.endTime, Session.description
 FROM Session;

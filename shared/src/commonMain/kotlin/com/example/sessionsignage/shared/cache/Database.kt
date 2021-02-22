@@ -23,7 +23,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         }
     }
 
-    internal fun getAllSessions(): List<SessionItem> {
+    internal fun getAllSessions(): List<Session> {
         return dbQuery.selectAllSessions(::mapSession).executeAsList()
     }
 
@@ -31,7 +31,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         return dbQuery.selectAllSessionOverviews(::mapSessionOverview).executeAsList()
     }
 
+    internal fun getSessionWithId(sessionId: Long): Session? {
+        return dbQuery.session(sessionId).executeAsOneOrNull()
+    }
+
     private fun mapSession(
+        id: Long,
         name: String,
         startTime: String,
         endTime: String,
@@ -42,8 +47,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         speakers: List<Speaker>,
         seatingInfo: SeatingInfo,
         tags: List<Tag>
-    ): SessionItem {
-        return SessionItem(
+    ): Session {
+        return Session(
+            id = id,
             name = name,
             startTime = startTime,
             endTime = endTime,
@@ -58,12 +64,14 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     private fun mapSessionOverview(
+        id: Long,
         name: String,
         startTime: String,
         endTime: String,
         description: String
     ): SessionOverviewItem {
         return SessionOverviewItem(
+            id = id,
             name = name,
             startTime = startTime,
             endTime = endTime,

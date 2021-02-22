@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         tv.text = greet()
 
         lifecycleScope.launchWhenCreated {
-            val sessions = SessionSignageSDK(DatabaseDriverFactory(this@MainActivity)).getSessionOverviews()
+            val sdk = SessionSignageSDK(DatabaseDriverFactory(this@MainActivity))
+            val sessions = sdk.getSessionOverviews()
             val builder = StringBuilder()
             for (session in sessions) {
                 builder.append(session.name)

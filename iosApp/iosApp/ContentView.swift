@@ -27,17 +27,17 @@ struct ContentView: View {
 extension ContentView {
     class ViewModel: ObservableObject {
         let sdk: SessionSignageSDK
-        @Published var sessions: [SessionItem]? = nil
+        @Published var sessions: [SessionOverviewItem]? = nil
         
         init(sdk: SessionSignageSDK) {
             self.sdk = sdk
-            self.loadSessions()
+            self.loadSessionOverviews()
         }
         
-        func loadSessions() {
-            sdk.getSessions(forceReload: false, completionHandler: {sessions, error in
-                self.sessions = sessions
-            })
+        func loadSessionOverviews() {
+            sdk.getSessionOverviews(forceReload: false) { (sessionOverItems, error) in
+                self.sessions = sessionOverItems
+            }
         }
     }
 }
