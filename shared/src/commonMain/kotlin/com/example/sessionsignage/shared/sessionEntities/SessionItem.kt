@@ -21,10 +21,10 @@ data class SessionItem(
     val name: String,
     @SerialName("startTime")
     val startTime: String,
-//    @SerialName("seatingInfo")
-//    val seatingInfo: SeatingInfo,
     @SerialName("speakers")
-    val speakers: List<Speaker>
-//    @SerialName("tags")
-//    val tags: List<Tag>
+    val speakers: List<Speaker>,
+    @SerialName("seatingInfo")
+    val seatingInfo: SeatingInfo,
+    @SerialName("tags")
+    val tags: List<Tag>
 )

@@ -1,5 +1,7 @@
 import kotlin.collections.List;
 import com.example.sessionsignage.shared.sessionEntities.Speaker;
+import com.example.sessionsignage.shared.sessionEntities.Tag;
+import com.example.sessionsignage.shared.sessionEntities.SeatingInfo;
 
 CREATE TABLE Session (
 name TEXT NOT NULL,
@@ -9,13 +11,14 @@ description TEXT NOT NULL,
 location TEXT NOT NULL,
 isRecorded INTEGER AS Boolean NOT NULL DEFAULT FALSE,
 bannerUrl TEXT NOT NULL,
-seatingId INTEGER NOT NULL,
-speakers TEXT AS List<Speaker> NOT NULL
+speakers TEXT AS List<Speaker> NOT NULL,
+seatingInfo TEXT AS SeatingInfo NOT NULL,
+tags TEXT AS List<Tag> NOT NULL
 );
 
 insertSession:
-INSERT INTO Session(name, startTime, endTime, description, location, isRecorded, bannerUrl, seatingId, speakers)
-VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO Session(name, startTime, endTime, description, location, isRecorded, bannerUrl, speakers, seatingInfo, tags)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 removeAllSessions:
 DELETE FROM Session;

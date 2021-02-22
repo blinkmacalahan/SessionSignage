@@ -1,11 +1,15 @@
 package com.example.sessionsignage.shared.cache
 
+import com.example.sessionsignage.shared.db.SeatingInfoAdapter
 import com.example.sessionsignage.shared.db.SpeakersAdapter
+import com.example.sessionsignage.shared.db.TagsAdapter
+import com.example.sessionsignage.shared.sessionEntities.SeatingInfo
 import com.example.sessionsignage.shared.sessionEntities.SessionItem
 import com.example.sessionsignage.shared.sessionEntities.Speaker
+import com.example.sessionsignage.shared.sessionEntities.Tag
 
 internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
-    private val database = AppDatabase(databaseDriverFactory.createDriver(), Session.Adapter(SpeakersAdapter()))
+    private val database = AppDatabase(databaseDriverFactory.createDriver(), Session.Adapter(SpeakersAdapter(), SeatingInfoAdapter(), TagsAdapter()))
     private val dbQuery = database.appDatabaseQueries
 
     internal fun clearDatabase() {
@@ -26,8 +30,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         location: String,
         isRecorded: Boolean,
         bannerUrl: String,
-        seatingId: Long,
-        speakers: List<Speaker>
+        speakers: List<Speaker>,
+        seatingInfo: SeatingInfo,
+        tags: List<Tag>
     ): SessionItem {
         return SessionItem(
             name = name,
@@ -37,7 +42,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             location = location,
             isRecorded = isRecorded,
             bannerUrl = bannerUrl,
-            speakers = speakers
+            speakers = speakers,
+            seatingInfo = seatingInfo,
+            tags = tags
         )
     }
 
@@ -58,8 +65,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             location = session.location,
             isRecorded = session.isRecorded,
             bannerUrl = session.bannerUrl,
-            seatingId = 0,
-            speakers = session.speakers
+            speakers = session.speakers,
+            seatingInfo = session.seatingInfo,
+            tags = session.tags
         )
     }
 
