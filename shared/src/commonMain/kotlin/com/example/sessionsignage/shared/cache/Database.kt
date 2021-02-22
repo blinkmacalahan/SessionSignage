@@ -5,11 +5,16 @@ import com.example.sessionsignage.shared.db.SpeakersAdapter
 import com.example.sessionsignage.shared.db.TagsAdapter
 import com.example.sessionsignage.shared.sessionEntities.SeatingInfo
 import com.example.sessionsignage.shared.sessionEntities.SessionItem
+import com.example.sessionsignage.shared.sessionEntities.SessionOverviewItem
 import com.example.sessionsignage.shared.sessionEntities.Speaker
 import com.example.sessionsignage.shared.sessionEntities.Tag
 
 internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
-    private val database = AppDatabase(databaseDriverFactory.createDriver(), Session.Adapter(SpeakersAdapter(), SeatingInfoAdapter(), TagsAdapter()))
+
+    private val database = AppDatabase(
+        databaseDriverFactory.createDriver(),
+        Session.Adapter(SpeakersAdapter(), SeatingInfoAdapter(), TagsAdapter())
+    )
     private val dbQuery = database.appDatabaseQueries
 
     internal fun clearDatabase() {
@@ -20,6 +25,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     internal fun getAllSessions(): List<SessionItem> {
         return dbQuery.selectAllSessions(::mapSession).executeAsList()
+    }
+
+    internal fun getSessionOverviews(): List<SessionOverviewItem> {
+        return dbQuery.selectAllSessionOverviews(::mapSessionOverview).executeAsList()
     }
 
     private fun mapSession(
@@ -48,6 +57,20 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         )
     }
 
+    private fun mapSessionOverview(
+        name: String,
+        startTime: String,
+        endTime: String,
+        description: String
+    ): SessionOverviewItem {
+        return SessionOverviewItem(
+            name = name,
+            startTime = startTime,
+            endTime = endTime,
+            description = description
+        )
+    }
+
     internal fun createEvent(sessions: List<SessionItem>) {
         dbQuery.transaction {
             sessions.forEach { session ->
@@ -70,37 +93,4 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             tags = session.tags
         )
     }
-
-//    private fun mapLaunchSelecting(
-//        flightNumber: Long,
-//        missionName: String,
-//        launchYear: Int,
-//        rocketId: String,
-//        details: String?,
-//        launchSuccess: Boolean?,
-//        launchDateUTC: String,
-//        missionPatchUrl: String?,
-//        articleUrl: String?,
-//        rocket_id: String?,
-//        name: String?,
-//        type: String?
-//    ): RocketLaunch {
-//        return RocketLaunch(
-//            flightNumber = flightNumber.toInt(),
-//            missionName = missionName,
-//            launchYear = launchYear,
-//            details = details,
-//            launchDateUTC = launchDateUTC,
-//            launchSuccess = launchSuccess,
-//            rocket = Rocket(
-//                id = rocketId,
-//                name = name!!,
-//                type = type!!
-//            ),
-//            links = Links(
-//                missionPatchUrl = missionPatchUrl,
-//                articleUrl = articleUrl
-//            )
-//        )
-//    }
 }

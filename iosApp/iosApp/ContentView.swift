@@ -16,6 +16,8 @@ struct ContentView: View {
         var text = ""
         for session in sessions {
             text.append(session.name)
+            text.append(": ")
+            text.append(Platform().formatSessionTime(startTime: session.startTime, endTime: session.endTime))
             text.append("\n")
         }
         return Text(text)

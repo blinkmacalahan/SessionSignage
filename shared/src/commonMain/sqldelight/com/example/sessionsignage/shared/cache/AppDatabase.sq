@@ -26,3 +26,7 @@ DELETE FROM Session;
 selectAllSessions:
 SELECT Session.*
 FROM Session;
+
+selectAllSessionOverviews:
+SELECT Session.name, Session.startTime, Session.endTime, Session.description
+FROM Session;
