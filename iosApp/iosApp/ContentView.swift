@@ -33,9 +33,9 @@ extension ContentView {
         }
         
         func loadSessions() {
-            sdk.getSessions { (sessions, error) in
+            sdk.getSessions(forceReload: false, completionHandler: {sessions, error in
                 self.sessions = sessions
-            }
+            })
         }
     }
 }

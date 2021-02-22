@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sessionsignage.shared.Greeting
 import com.example.sessionsignage.shared.SessionSignageSDK
+import com.example.sessionsignage.shared.cache.DatabaseDriverFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         tv.text = greet()
 
         lifecycleScope.launchWhenCreated {
-            val sessions = SessionSignageSDK().getSessions()
+            val sessions = SessionSignageSDK(DatabaseDriverFactory(this@MainActivity)).getSessions()
             val builder = StringBuilder()
             for (session in sessions) {
                 builder.append(session.name)

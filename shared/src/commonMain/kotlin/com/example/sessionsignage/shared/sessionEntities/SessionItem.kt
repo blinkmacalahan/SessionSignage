@@ -1,6 +1,5 @@
 package com.example.sessionsignage.shared.sessionEntities
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -8,8 +7,8 @@ import kotlinx.serialization.Serializable
 data class SessionItem(
     @SerialName("bannerUrl")
     val bannerUrl: String,
-    @SerialName("date")
-    val date: String,
+//    @SerialName("date")
+//    val date: String,
     @SerialName("description")
     val description: String,
     @SerialName("endTime")
@@ -20,12 +19,12 @@ data class SessionItem(
     val location: String,
     @SerialName("name")
     val name: String,
-    @SerialName("seatingInfo")
-    val seatingInfo: SeatingInfo,
-    @SerialName("speakers")
-    val speakers: List<Speaker>,
     @SerialName("startTime")
     val startTime: String,
-    @SerialName("tags")
-    val tags: List<Tag>
+//    @SerialName("seatingInfo")
+//    val seatingInfo: SeatingInfo,
+    @SerialName("speakers")
+    val speakers: List<Speaker>
+//    @SerialName("tags")
+//    val tags: List<Tag>
 )
