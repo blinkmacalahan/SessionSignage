@@ -39,6 +39,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         return dbQuery.session(sessionId).executeAsOneOrNull()
     }
 
+    internal fun getSessionOverviewsForLocation(location: String): List<SessionOverviewItem> {
+        return dbQuery.selectSessionOverviewsForLocation(location, ::mapSessionOverview).executeAsList()
+    }
+
     private fun mapSession(
         id: String,
         name: String,
