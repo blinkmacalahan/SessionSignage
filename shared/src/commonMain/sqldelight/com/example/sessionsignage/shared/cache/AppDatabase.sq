@@ -4,7 +4,7 @@ import com.example.sessionsignage.shared.sessionEntities.Tag;
 import com.example.sessionsignage.shared.sessionEntities.SeatingInfo;
 
 CREATE TABLE Session (
-id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+id TEXT NOT NULL,
 name TEXT NOT NULL,
 startTime TEXT NOT NULL,
 endTime TEXT NOT NULL,
@@ -18,8 +18,8 @@ tags TEXT AS List<Tag> NOT NULL
 );
 
 insertSession:
-INSERT INTO Session(name, startTime, endTime, description, location, isRecorded, bannerUrl, speakers, seatingInfo, tags)
-VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO Session(id, name, startTime, endTime, description, location, isRecorded, bannerUrl, speakers, seatingInfo, tags)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 removeAllSessions:
 DELETE FROM Session;
@@ -36,3 +36,8 @@ WHERE Session.id = ?;
 selectAllSessionOverviews:
 SELECT Session.id, Session.name, Session.startTime, Session.endTime, Session.description
 FROM Session;
+
+updateSession:
+UPDATE Session
+SET location = ?
+WHERE id = ?;

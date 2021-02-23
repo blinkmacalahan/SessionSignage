@@ -5,10 +5,12 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SessionItem(
+    @SerialName("id")
+    val id: String,
     @SerialName("bannerUrl")
     val bannerUrl: String,
-//    @SerialName("date")
-//    val date: String,
+    @SerialName("date")
+    val date: String,
     @SerialName("description")
     val description: String,
     @SerialName("endTime")

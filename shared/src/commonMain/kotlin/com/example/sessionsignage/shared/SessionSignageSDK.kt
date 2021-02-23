@@ -7,10 +7,12 @@ import com.example.sessionsignage.shared.network.GoogleIOApi
 import com.example.sessionsignage.shared.sessionEntities.SessionOverviewItem
 
 class SessionSignageSDK(databaseDriverFactory: DatabaseDriverFactory) {
+
     private val database = Database(databaseDriverFactory)
     private val api = GoogleIOApi()
 
-    @Throws(Exception::class) suspend fun getSessions(forceReload: Boolean = false): List<Session> {
+    @Throws(Exception::class)
+    suspend fun getSessions(forceReload: Boolean = false): List<Session> {
         val cachedSessions = database.getAllSessions()
         return if (cachedSessions.isNotEmpty() && !forceReload) {
             cachedSessions
@@ -19,7 +21,8 @@ class SessionSignageSDK(databaseDriverFactory: DatabaseDriverFactory) {
         }
     }
 
-    @Throws(Exception::class) suspend fun getSessionOverviews(forceReload: Boolean = false): List<SessionOverviewItem> {
+    @Throws(Exception::class)
+    suspend fun getSessionOverviews(forceReload: Boolean = false): List<SessionOverviewItem> {
         val cachedSessionOverviews = database.getSessionOverviews()
         return if (cachedSessionOverviews.isNotEmpty() && !forceReload) {
             cachedSessionOverviews
@@ -30,7 +33,8 @@ class SessionSignageSDK(databaseDriverFactory: DatabaseDriverFactory) {
         }
     }
 
-    @Throws(Exception::class) suspend fun getSessionWithId(sessionId: Long): Session? {
+    @Throws(Exception::class)
+    suspend fun getSessionWithId(sessionId: String): Session? {
         return database.getSessionWithId(sessionId)
     }
 
