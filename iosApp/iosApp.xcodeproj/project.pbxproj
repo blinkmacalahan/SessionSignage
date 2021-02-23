@@ -24,10 +24,10 @@
 		BDFF486125E55D5A00FB1087 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDFF485F25E55D5A00FB1087 /* LaunchScreen.storyboard */; };
 		BDFF486C25E55D5A00FB1087 /* appleTVAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF486B25E55D5A00FB1087 /* appleTVAppTests.swift */; };
 		BDFF487725E55D5A00FB1087 /* appleTVAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF487625E55D5A00FB1087 /* appleTVAppUITests.swift */; };
-		BDFF488825E55DDF00FB1087 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
-		BDFF488925E55DDF00FB1087 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BDFF489325E55F5200FB1087 /* SignageSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF489225E55F5200FB1087 /* SignageSDK.swift */; };
 		BDFF489C25E561C800FB1087 /* SignageSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF489225E55F5200FB1087 /* SignageSDK.swift */; };
+		BDFF48B725E57EF100FB1087 /* tvOSShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFF48A625E57D4700FB1087 /* tvOSShared.framework */; };
+		BDFF48B825E57EF100FB1087 /* tvOSShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDFF48A625E57D4700FB1087 /* tvOSShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,13 +73,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDFF488A25E55DDF00FB1087 /* Embed Frameworks */ = {
+		BDFF48B925E57EF100FB1087 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BDFF488925E55DDF00FB1087 /* shared.framework in Embed Frameworks */,
+				BDFF48B825E57EF100FB1087 /* tvOSShared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +116,7 @@
 		BDFF487625E55D5A00FB1087 /* appleTVAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appleTVAppUITests.swift; sourceTree = "<group>"; };
 		BDFF487825E55D5A00FB1087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDFF489225E55F5200FB1087 /* SignageSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignageSDK.swift; sourceTree = "<group>"; };
+		BDFF48A625E57D4700FB1087 /* tvOSShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tvOSShared.framework; path = "../shared/build/xcode-frameworks/tvOSShared.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDFF488825E55DDF00FB1087 /* shared.framework in Frameworks */,
+				BDFF48B725E57EF100FB1087 /* tvOSShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +238,7 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDFF48A625E57D4700FB1087 /* tvOSShared.framework */,
 				7555FFB1242A642300829871 /* shared.framework */,
 			);
 			name = Frameworks;
@@ -347,7 +349,7 @@
 				BDFF485025E55D5700FB1087 /* Sources */,
 				BDFF485125E55D5700FB1087 /* Frameworks */,
 				BDFF485225E55D5700FB1087 /* Resources */,
-				BDFF488A25E55DDF00FB1087 /* Embed Frameworks */,
+				BDFF48B925E57EF100FB1087 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -888,6 +890,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks";
 				INFOPLIST_FILE = appleTVApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -909,6 +912,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks";
 				INFOPLIST_FILE = appleTVApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         
         // Set the text
         textView.text = SignageSDK.shared.sessionText()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // your code here
+            self.textView.text = SignageSDK.shared.sessionText()
+        }
     }
 
 }

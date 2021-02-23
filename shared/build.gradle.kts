@@ -17,7 +17,14 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = "shared"
+                baseName = "iOSShared"
+            }
+        }
+    }
+    tvos {
+        binaries {
+            framework {
+                baseName = "tvOSShared"
             }
         }
     }
@@ -57,6 +64,13 @@ kotlin {
             }
         }
         val iosTest by getting
+        val tvosMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+            }
+        }
+        val tvosTest by getting
     }
 }
 
@@ -78,8 +92,9 @@ sqldelight {
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
-    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
-    val targetName = "tvOS"
+    val sdkName = System.getenv("SDK_NAME") ?: "simulator"
+    var deviceType = if (sdkName.startsWith("iphone")) "ios" else "tvos"
+    val targetName = deviceType + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
     val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)

@@ -7,7 +7,11 @@
 //
 
 import UIKit
+#if os(tvOS)
+import tvOSShared
+#else
 import shared
+#endif
 
 class SignageSDK {
     
