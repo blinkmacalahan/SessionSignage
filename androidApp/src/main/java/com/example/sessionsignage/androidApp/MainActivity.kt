@@ -18,6 +18,7 @@ fun greet(): String {
 class MainActivity : AppCompatActivity() {
 
     private val platform = Platform()
+    private lateinit var sdk: SessionSignageSDK
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         tv.text = greet()
 
         lifecycleScope.launchWhenCreated {
-            val sdk = SessionSignageSDK(DatabaseDriverFactory(this@MainActivity))
+            sdk = SessionSignageSDK(DatabaseDriverFactory(this@MainActivity))
             val sessions = sdk.getSessionOverviews()
             val builder = StringBuilder()
             for (session in sessions) {
@@ -39,6 +40,18 @@ class MainActivity : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 tv.text = builder.toString().trim()
             }
+            
+//            // Listen for updates to a particular session
+//            launch {
+//                sdk.getObservableSessionWithId("a8ca402e-c376-4daa-93df-6b5cf28b5537").watch {
+//                    Log.d("CRR", "session $it")
+//                }
+//            }
+//            // Code to update the session
+//            delay(2000)
+//            sdk.updateSession("a8ca402e-c376-4daa-93df-6b5cf28b5537")
+//            delay(2000)
+//            sdk.updateSession("a8ca402e-c376-4daa-93df-6b5cf28b5537")
         }
     }
 }

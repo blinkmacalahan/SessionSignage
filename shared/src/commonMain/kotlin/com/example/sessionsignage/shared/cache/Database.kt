@@ -8,6 +8,10 @@ import com.example.sessionsignage.shared.sessionEntities.SessionItem
 import com.example.sessionsignage.shared.sessionEntities.SessionOverviewItem
 import com.example.sessionsignage.shared.sessionEntities.Speaker
 import com.example.sessionsignage.shared.sessionEntities.Tag
+import com.squareup.sqldelight.Query
+import com.squareup.sqldelight.runtime.coroutines.asFlow
+import com.squareup.sqldelight.runtime.coroutines.mapToOneNotNull
+import kotlinx.coroutines.flow.Flow
 
 internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
@@ -33,6 +37,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     internal fun getSessionWithId(sessionId: String): Session? {
         return dbQuery.session(sessionId).executeAsOneOrNull()
+    }
+
+    internal fun getSessionOverviewsForLocation(location: String): List<SessionOverviewItem> {
+        return dbQuery.selectSessionOverviewsForLocation(location, ::mapSessionOverview).executeAsList()
     }
 
     private fun mapSession(
@@ -101,5 +109,14 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             seatingInfo = session.seatingInfo,
             tags = session.tags
         )
+    }
+
+    var x = 1
+    internal fun updateSession(sessionId: String) {
+        dbQuery.updateSession("Chris is ready to rock ${x++}", sessionId)
+    }
+
+    internal fun observableSessionWithId(sessionId: String): Flow<Session> {
+        return dbQuery.session(sessionId).asFlow().mapToOneNotNull()
     }
 }

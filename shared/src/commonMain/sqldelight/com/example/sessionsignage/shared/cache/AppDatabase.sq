@@ -26,7 +26,8 @@ DELETE FROM Session;
 
 selectAllSessions:
 SELECT Session.*
-FROM Session;
+FROM Session
+ORDER BY Session.startTime ASC;
 
 session:
 SELECT Session.*
@@ -35,9 +36,16 @@ WHERE Session.id = ?;
 
 selectAllSessionOverviews:
 SELECT Session.id, Session.name, Session.startTime, Session.endTime, Session.description
-FROM Session;
+FROM Session
+ORDER BY Session.startTime ASC;
+
+selectSessionOverviewsForLocation:
+SELECT Session.id, Session.name, Session.startTime, Session.endTime, Session.description
+FROM Session
+WHERE Session.location = ?
+ORDER BY Session.startTime ASC;
 
 updateSession:
 UPDATE Session
-SET location = ?
+SET name = ?
 WHERE id = ?;
