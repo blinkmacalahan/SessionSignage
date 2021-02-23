@@ -24,11 +24,17 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation( "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2-native-mt") {
+                    version {
+                        strictly("1.4.2-native-mt")
+                    }
+                }
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+                implementation("com.squareup.sqldelight:coroutines-extensions:1.4.4")
             }
         }
         val commonTest by getting {

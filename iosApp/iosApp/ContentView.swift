@@ -38,6 +38,22 @@ extension ContentView {
             sdk.getSessionOverviews(forceReload: false) { (sessionOverItems, error) in
                 self.sessions = sessionOverItems
             }
+            
+//            // Code to be notified when a session is updated
+//            sdk.getObservableSessionWithId(sessionId: "a8ca402e-c376-4daa-93df-6b5cf28b5537") { (commonFlow, error) in
+//                commonFlow?.watch(block: { (session) in
+//                    print("session: " + (session?.name ?? "not found"))
+//                    
+//                    if let xSession = session {
+//                        self.sessions = [SessionOverviewItem(id: xSession.id, name: xSession.name, description: xSession.description(), startTime: xSession.startTime, endTime: xSession.endTime)]
+//                    }
+//                })
+//            }
+//            
+//            // Code to update a session to test the observer is working
+//            sdk.updateSession(sessionId: "a8ca402e-c376-4daa-93df-6b5cf28b5537") { (any, error) in
+//                print("update complete")
+//            }
         }
     }
 }
