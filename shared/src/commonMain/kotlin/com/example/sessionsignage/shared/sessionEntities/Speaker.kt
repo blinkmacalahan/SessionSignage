@@ -9,7 +9,7 @@ data class Speaker(
     @SerialName("company")
     val company: String,
     @SerialName("description")
-    val description: String,
+    val desc: String,
     @SerialName("img")
     val img: String,
     @SerialName("name")
