@@ -15,8 +15,14 @@
 		7555FFA1242A565B00829871 /* iosAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FFA0242A565B00829871 /* iosAppUITests.swift */; };
 		7555FFB2242A642300829871 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
 		7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD75FD3F25E6B27000331383 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75FD3E25E6B27000331383 /* Block.swift */; };
+		BD75FD4025E6B27000331383 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75FD3E25E6B27000331383 /* Block.swift */; };
+		BD75FD4625E6BB8B00331383 /* SessionSpeakersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75FD4525E6BB8B00331383 /* SessionSpeakersCell.swift */; };
+		BD75FD4C25E6BB9B00331383 /* SessionSeatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75FD4B25E6BB9B00331383 /* SessionSeatingCell.swift */; };
+		BDE98D4C25E6A3F700BE67ED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE98D4B25E6A3F700BE67ED /* UIColor+Extension.swift */; };
+		BDE98D5125E6A3FE00BE67ED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE98D4B25E6A3F700BE67ED /* UIColor+Extension.swift */; };
+		BDE98D5A25E6AB3D00BE67ED /* SessionTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE98D5825E6AB3D00BE67ED /* SessionTextCell.swift */; };
 		BDFF485725E55D5700FB1087 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF485625E55D5700FB1087 /* AppDelegate.swift */; };
-		BDFF485925E55D5700FB1087 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF485825E55D5700FB1087 /* ViewController.swift */; };
 		BDFF485C25E55D5700FB1087 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDFF485A25E55D5700FB1087 /* Main.storyboard */; };
 		BDFF485E25E55D5A00FB1087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDFF485D25E55D5A00FB1087 /* Assets.xcassets */; };
 		BDFF486125E55D5A00FB1087 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDFF485F25E55D5A00FB1087 /* LaunchScreen.storyboard */; };
@@ -28,6 +34,12 @@
 		BDFF48B825E57EF100FB1087 /* tvOSShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BDFF48A625E57D4700FB1087 /* tvOSShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BDFF48BF25E5872E00FB1087 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDFF48BE25E5872D00FB1087 /* Main.storyboard */; };
 		BDFF48C925E5875C00FB1087 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF48C825E5875C00FB1087 /* ViewController.swift */; };
+		BDFF48E425E58F8200FB1087 /* MainSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF48E325E58F8200FB1087 /* MainSelectionViewController.swift */; };
+		BDFF48EE25E590C900FB1087 /* SessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF48ED25E590C900FB1087 /* SessionListViewController.swift */; };
+		BDFF48F425E590D700FB1087 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF48F325E590D700FB1087 /* RoomListViewController.swift */; };
+		BDFF490225E5BEB000FB1087 /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF490125E5BEB000FB1087 /* DisplayManager.swift */; };
+		BDFF490825E5C08000FB1087 /* SessionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF490725E5C08000FB1087 /* SessionDetailsViewController.swift */; };
+		BDFF490E25E5C08F00FB1087 /* RoomDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFF490D25E5C08F00FB1087 /* RoomDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,9 +112,13 @@
 		7555FFA0242A565B00829871 /* iosAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosAppUITests.swift; sourceTree = "<group>"; };
 		7555FFA2242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7555FFB1242A642300829871 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
+		BD75FD3E25E6B27000331383 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		BD75FD4525E6BB8B00331383 /* SessionSpeakersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSpeakersCell.swift; sourceTree = "<group>"; };
+		BD75FD4B25E6BB9B00331383 /* SessionSeatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSeatingCell.swift; sourceTree = "<group>"; };
+		BDE98D4B25E6A3F700BE67ED /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "../../../DDEvent/DDEvent/Categories/UI/UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BDE98D5825E6AB3D00BE67ED /* SessionTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTextCell.swift; sourceTree = "<group>"; };
 		BDFF485425E55D5700FB1087 /* appleTVApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appleTVApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDFF485625E55D5700FB1087 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BDFF485825E55D5700FB1087 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BDFF485B25E55D5700FB1087 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDFF485D25E55D5A00FB1087 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDFF486025E55D5A00FB1087 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -117,6 +133,12 @@
 		BDFF48A625E57D4700FB1087 /* tvOSShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tvOSShared.framework; path = "../shared/build/xcode-frameworks/tvOSShared.framework"; sourceTree = "<group>"; };
 		BDFF48BE25E5872D00FB1087 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BDFF48C825E5875C00FB1087 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BDFF48E325E58F8200FB1087 /* MainSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelectionViewController.swift; sourceTree = "<group>"; };
+		BDFF48ED25E590C900FB1087 /* SessionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewController.swift; sourceTree = "<group>"; };
+		BDFF48F325E590D700FB1087 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
+		BDFF490125E5BEB000FB1087 /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
+		BDFF490725E5C08000FB1087 /* SessionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailsViewController.swift; sourceTree = "<group>"; };
+		BDFF490D25E5C08F00FB1087 /* RoomDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,11 +258,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BDE98D5625E6AB0800BE67ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BDE98D5825E6AB3D00BE67ED /* SessionTextCell.swift */,
+				BD75FD4525E6BB8B00331383 /* SessionSpeakersCell.swift */,
+				BD75FD4B25E6BB9B00331383 /* SessionSeatingCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BDE98D5725E6AB0D00BE67ED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BDFF48E325E58F8200FB1087 /* MainSelectionViewController.swift */,
+				BDFF48ED25E590C900FB1087 /* SessionListViewController.swift */,
+				BDFF48F325E590D700FB1087 /* RoomListViewController.swift */,
+				BDFF490725E5C08000FB1087 /* SessionDetailsViewController.swift */,
+				BDFF490D25E5C08F00FB1087 /* RoomDetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		BDFF485525E55D5700FB1087 /* appleTVApp */ = {
 			isa = PBXGroup;
 			children = (
+				BDE98D5625E6AB0800BE67ED /* Cells */,
+				BDE98D5725E6AB0D00BE67ED /* Controllers */,
 				BDFF485625E55D5700FB1087 /* AppDelegate.swift */,
-				BDFF485825E55D5700FB1087 /* ViewController.swift */,
 				BDFF485A25E55D5700FB1087 /* Main.storyboard */,
 				BDFF485D25E55D5A00FB1087 /* Assets.xcassets */,
 				BDFF485F25E55D5A00FB1087 /* LaunchScreen.storyboard */,
@@ -271,6 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				BDFF489225E55F5200FB1087 /* SignageSDK.swift */,
+				BDFF490125E5BEB000FB1087 /* DisplayManager.swift */,
+				BDE98D4B25E6A3F700BE67ED /* UIColor+Extension.swift */,
+				BD75FD3E25E6B27000331383 /* Block.swift */,
 			);
 			path = sharedBackend;
 			sourceTree = "<group>";
@@ -541,7 +589,9 @@
 				BDFF48C925E5875C00FB1087 /* ViewController.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
+				BD75FD3F25E6B27000331383 /* Block.swift in Sources */,
 				BDFF489325E55F5200FB1087 /* SignageSDK.swift in Sources */,
+				BDE98D5125E6A3FE00BE67ED /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,8 +615,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDFF485925E55D5700FB1087 /* ViewController.swift in Sources */,
+				BDFF48EE25E590C900FB1087 /* SessionListViewController.swift in Sources */,
+				BD75FD4025E6B27000331383 /* Block.swift in Sources */,
+				BD75FD4625E6BB8B00331383 /* SessionSpeakersCell.swift in Sources */,
 				BDFF489C25E561C800FB1087 /* SignageSDK.swift in Sources */,
+				BDFF48F425E590D700FB1087 /* RoomListViewController.swift in Sources */,
+				BDE98D4C25E6A3F700BE67ED /* UIColor+Extension.swift in Sources */,
+				BDFF48E425E58F8200FB1087 /* MainSelectionViewController.swift in Sources */,
+				BDFF490E25E5C08F00FB1087 /* RoomDetailsViewController.swift in Sources */,
+				BDFF490825E5C08000FB1087 /* SessionDetailsViewController.swift in Sources */,
+				BDE98D5A25E6AB3D00BE67ED /* SessionTextCell.swift in Sources */,
+				BDFF490225E5BEB000FB1087 /* DisplayManager.swift in Sources */,
+				BD75FD4C25E6BB9B00331383 /* SessionSeatingCell.swift in Sources */,
 				BDFF485725E55D5700FB1087 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

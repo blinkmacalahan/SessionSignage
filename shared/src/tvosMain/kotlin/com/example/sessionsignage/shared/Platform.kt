@@ -28,4 +28,12 @@ actual class Platform actual constructor() {
         val endDate = requireNotNull(iso8601Format.dateFromString(endTime))
         return "${dateFormat.stringFromDate(startDate)}, ${timeFormat.stringFromDate(startDate)} - ${timeFormat.stringFromDate(endDate)}"
     }
+    actual fun formatDay(time: String): String {
+        val date = requireNotNull(iso8601Format.dateFromString(time))
+        return "${dateFormat.stringFromDate(date)}"
+    }
+    actual fun formatTime(time: String): String {
+        val date = requireNotNull(iso8601Format.dateFromString(time))
+        return "${timeFormat.stringFromDate(date)}"
+    }
 }
