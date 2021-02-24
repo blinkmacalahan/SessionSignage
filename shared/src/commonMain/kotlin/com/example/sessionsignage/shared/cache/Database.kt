@@ -48,7 +48,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         name: String,
         startTime: String,
         endTime: String,
-        description: String,
+        desc: String,
         location: String,
         isRecorded: Boolean,
         bannerUrl: String,
@@ -61,7 +61,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             name = name,
             startTime = startTime,
             endTime = endTime,
-            description = description,
+            desc = desc,
             location = location,
             isRecorded = isRecorded,
             bannerUrl = bannerUrl,
@@ -76,14 +76,14 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         name: String,
         startTime: String,
         endTime: String,
-        description: String
+        desc: String
     ): SessionOverviewItem {
         return SessionOverviewItem(
             id = id,
             name = name,
             startTime = startTime,
             endTime = endTime,
-            description = description
+            desc = desc
         )
     }
 
@@ -101,7 +101,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             name = session.name,
             startTime = session.startTime,
             endTime = session.endTime,
-            description = session.description,
+            desc = session.desc,
             location = session.location,
             isRecorded = session.isRecorded,
             bannerUrl = session.bannerUrl,

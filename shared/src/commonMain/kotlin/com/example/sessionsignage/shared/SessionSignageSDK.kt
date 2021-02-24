@@ -30,7 +30,7 @@ class SessionSignageSDK(databaseDriverFactory: DatabaseDriverFactory) {
             cachedSessionOverviews
         } else {
             syncSessions(api, database).map {
-                SessionOverviewItem(it.id, it.name, it.description, it.startTime, it.endTime)
+                SessionOverviewItem(it.id, it.name, it.desc, it.startTime, it.endTime)
             }
         }
     }

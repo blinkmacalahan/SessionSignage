@@ -12,7 +12,7 @@ data class SessionItem(
     @SerialName("date")
     val date: String,
     @SerialName("description")
-    val description: String,
+    val desc: String,
     @SerialName("endTime")
     val endTime: String,
     @SerialName("isRecorded")
