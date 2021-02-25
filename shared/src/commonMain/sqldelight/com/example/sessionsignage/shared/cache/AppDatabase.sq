@@ -45,6 +45,12 @@ FROM Session
 WHERE Session.location = ?
 ORDER BY Session.startTime ASC;
 
+selectSessionsForLocation:
+SELECT Session.*
+FROM Session
+WHERE Session.location = ?
+ORDER BY Session.startTime ASC;
+
 updateSession:
 UPDATE Session
 SET name = ?

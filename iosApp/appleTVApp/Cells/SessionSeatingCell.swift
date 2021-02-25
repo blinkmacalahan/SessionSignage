@@ -7,7 +7,25 @@
 //
 
 import UIKit
+#if os(tvOS)
+import tvOSShared
+#else
+import shared
+#endif
 
 class SessionSeatingCell: UICollectionViewCell {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var openSeatsLabel: UILabel!
+    @IBOutlet weak var checkedInLabel: UILabel!
+    @IBOutlet weak var reservedLabel: UILabel!
+    
+    // MARK: - Configuration
+    
+    func configure(_ seat: SeatingInfo?) {
+        openSeatsLabel.text = "\(seat?.open ?? 0)"
+        checkedInLabel.text = "\(seat?.checkedIn ?? 0)"
+        reservedLabel.text = "\(seat?.reserved ?? 0)"
+    }
     
 }

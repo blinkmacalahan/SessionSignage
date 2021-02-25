@@ -60,9 +60,15 @@ class SignageSDK {
         }
     }
     
-    func loadSessionsForRoom(_ room: String, reload: Bool = false, completion: ((_ sessionItems: [SessionOverviewItem]) -> Void)?) {
+    func loadSessionsOverviewsForRoom(_ room: String, reload: Bool = false, completion: ((_ sessionItems: [SessionOverviewItem]) -> Void)?) {
         sdk.getSessionOverviewsForLocation(location: room) { (sessionOverviewItems: [SessionOverviewItem]?, error: Error?) in
             completion?(sessionOverviewItems ?? [])
+        }
+    }
+    
+    func loadSessionsForRoom(_ room: String, reload: Bool = false, completion: ((_ sessionItems: [Session]) -> Void)?) {
+        sdk.getSessionsForLocation(location: room) { (sessions: [Session]?, error: Error?) in
+            completion?(sessions ?? [])
         }
     }
     

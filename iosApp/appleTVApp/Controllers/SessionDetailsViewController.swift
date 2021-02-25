@@ -194,20 +194,26 @@ class SessionDetailsViewController: UIViewController, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        if loadedSession?.speakers.count ?? 0 > 0 {
+            return 4
+        } else {
+            return 3
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 1 {
             let cell : SessionSeatingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionSeatingCell", for: indexPath) as! SessionSeatingCell
+            cell.configure(loadedSession?.seatingInfo)
             return cell
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2 && (loadedSession?.speakers.count ?? 0 > 0) {
             let cell : SessionSpeakersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionSpeakersCell", for: indexPath) as! SessionSpeakersCell
+            cell.configure(loadedSession?.speakers ?? [])
             return cell
         } else {
             // This is the first and last cell so we get a continuous loading
             let cell : SessionTextCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionTextCell", for: indexPath) as! SessionTextCell
-            cell.configure(loadedSession?.description())
+            cell.configure(loadedSession?.desc)
             return cell
         }
     }

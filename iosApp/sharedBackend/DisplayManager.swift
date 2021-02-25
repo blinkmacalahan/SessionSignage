@@ -25,7 +25,8 @@ class DisplayManager {
     }
 
     // MARK: - Class Variables
-    var availableSessions: [SessionOverviewItem]?
+    var availableOverviewSessions: [SessionOverviewItem]?
+    var availableSessions: [Session]?
     var displaySession: SessionOverviewItem?
     var showingRoom: String?
     var initialController: UIViewController?
@@ -35,15 +36,15 @@ class DisplayManager {
     convenience init(session: SessionOverviewItem) {
         self.init()
         DisplayManager.shared = self
-        availableSessions = [session]
+        availableOverviewSessions = [session]
     }
     
     convenience init(room: String) {
         self.init()
         DisplayManager.shared = self
         showingRoom = room
-        SignageSDK.shared.loadSessionsForRoom(room) { [weak self] (sessionItems: [SessionOverviewItem]) in
-            self?.availableSessions = sessionItems
+        SignageSDK.shared.loadSessionsOverviewsForRoom(room) { [weak self] (sessionItems: [SessionOverviewItem]) in
+            self?.availableOverviewSessions = sessionItems
         }
     }
     
@@ -67,7 +68,7 @@ class DisplayManager {
         case .SessionDetails:
             showRoomController(from: controller, present: false)
         case .RoomDetails:
-            if availableSessions?.count ?? 0 > 0 {
+            if availableOverviewSessions?.count ?? 0 > 0 {
                 showSessionController(from: controller, present: false)
             } else {
                 return false
@@ -88,15 +89,15 @@ class DisplayManager {
         loopCount += 1
         var showingSession: SessionOverviewItem?
         if displaySession == nil {
-            showingSession = availableSessions?.first
+            showingSession = availableOverviewSessions?.first
         } else if loopCount > 2 {
             loopCount = 1
-            let index = availableSessions?.firstIndex(of: displaySession!) ?? 0
+            let index = availableOverviewSessions?.firstIndex(of: displaySession!) ?? 0
             let nextIndex = index + 1
-            if nextIndex >= availableSessions?.count ?? 0 {
-                showingSession = availableSessions?.first
+            if nextIndex >= availableOverviewSessions?.count ?? 0 {
+                showingSession = availableOverviewSessions?.first
             } else {
-                showingSession = availableSessions?[nextIndex]
+                showingSession = availableOverviewSessions?[nextIndex]
             }
         } else {
             showingSession = displaySession
