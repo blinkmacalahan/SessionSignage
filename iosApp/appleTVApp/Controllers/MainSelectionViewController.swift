@@ -68,7 +68,12 @@ class MainSelectionViewController: UIViewController {
     }
     
     @IBAction func overallStatsAction(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let statsController = storyboard.instantiateViewController(withIdentifier: "OverallStatsViewController") as? OverallStatsViewController else {
+            fatalError("Unable to instatiate a OverallStatsViewController from the storyboard.")
+        }
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.pushViewController(statsController, animated: true)
     }
 
 }

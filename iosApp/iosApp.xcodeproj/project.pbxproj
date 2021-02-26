@@ -18,6 +18,8 @@
 		BD75002A25E73B1D00331383 /* SpeakerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75002925E73B1D00331383 /* SpeakerCell.swift */; };
 		BD75003425E73E9600331383 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75003325E73E9600331383 /* ImageLoader.swift */; };
 		BD75003A25E7EABD00331383 /* RoomSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75003925E7EABD00331383 /* RoomSessionCell.swift */; };
+		BD75012425E948EC00331383 /* OverallStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75012325E948EC00331383 /* OverallStatsViewController.swift */; };
+		BD75012E25E94A3F00331383 /* OverallSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75012D25E94A3F00331383 /* OverallSessionCell.swift */; };
 		BD75FD3F25E6B27000331383 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75FD3E25E6B27000331383 /* Block.swift */; };
 		BD75FD4025E6B27000331383 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75FD3E25E6B27000331383 /* Block.swift */; };
 		BD75FD4625E6BB8B00331383 /* SessionSpeakersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75FD4525E6BB8B00331383 /* SessionSpeakersCell.swift */; };
@@ -118,6 +120,8 @@
 		BD75002925E73B1D00331383 /* SpeakerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerCell.swift; sourceTree = "<group>"; };
 		BD75003325E73E9600331383 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		BD75003925E7EABD00331383 /* RoomSessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSessionCell.swift; sourceTree = "<group>"; };
+		BD75012325E948EC00331383 /* OverallStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallStatsViewController.swift; sourceTree = "<group>"; };
+		BD75012D25E94A3F00331383 /* OverallSessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallSessionCell.swift; sourceTree = "<group>"; };
 		BD75FD3E25E6B27000331383 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		BD75FD4525E6BB8B00331383 /* SessionSpeakersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSpeakersCell.swift; sourceTree = "<group>"; };
 		BD75FD4B25E6BB9B00331383 /* SessionSeatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSeatingCell.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				BD75FD4525E6BB8B00331383 /* SessionSpeakersCell.swift */,
 				BD75002925E73B1D00331383 /* SpeakerCell.swift */,
 				BD75003925E7EABD00331383 /* RoomSessionCell.swift */,
+				BD75012D25E94A3F00331383 /* OverallSessionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				BDFF48E325E58F8200FB1087 /* MainSelectionViewController.swift */,
 				BDFF48ED25E590C900FB1087 /* SessionListViewController.swift */,
 				BDFF48F325E590D700FB1087 /* RoomListViewController.swift */,
+				BD75012325E948EC00331383 /* OverallStatsViewController.swift */,
 				BDFF490725E5C08000FB1087 /* SessionDetailsViewController.swift */,
 				BDFF490D25E5C08F00FB1087 /* RoomDetailsViewController.swift */,
 			);
@@ -624,6 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD75012E25E94A3F00331383 /* OverallSessionCell.swift in Sources */,
 				BDFF48EE25E590C900FB1087 /* SessionListViewController.swift in Sources */,
 				BD75003A25E7EABD00331383 /* RoomSessionCell.swift in Sources */,
 				BD75FD4025E6B27000331383 /* Block.swift in Sources */,
@@ -632,6 +639,7 @@
 				BDFF489C25E561C800FB1087 /* SignageSDK.swift in Sources */,
 				BDFF48F425E590D700FB1087 /* RoomListViewController.swift in Sources */,
 				BDE98D4C25E6A3F700BE67ED /* UIColor+Extension.swift in Sources */,
+				BD75012425E948EC00331383 /* OverallStatsViewController.swift in Sources */,
 				BDFF48E425E58F8200FB1087 /* MainSelectionViewController.swift in Sources */,
 				BDFF490E25E5C08F00FB1087 /* RoomDetailsViewController.swift in Sources */,
 				BDFF490825E5C08000FB1087 /* SessionDetailsViewController.swift in Sources */,

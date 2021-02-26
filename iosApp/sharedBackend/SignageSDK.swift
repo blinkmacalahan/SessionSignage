@@ -50,7 +50,7 @@ class SignageSDK {
     }
     
     func loadSessions(reload: Bool = false, completion: ((_ sessionItems: [Session]) -> Void)?) {
-        if let results = sessions {
+        if !reload, let results = sessions {
             completion?(results)
             return
         }

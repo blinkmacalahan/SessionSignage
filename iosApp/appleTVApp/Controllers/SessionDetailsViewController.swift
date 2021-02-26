@@ -136,6 +136,7 @@ class SessionDetailsViewController: UIViewController, UICollectionViewDataSource
         
         for nextSubview in tagsStackView.arrangedSubviews {
             tagsStackView.removeArrangedSubview(nextSubview)
+            nextSubview.removeFromSuperview()
         }
     }
     
