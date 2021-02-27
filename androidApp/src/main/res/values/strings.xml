@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Session Signage</string>
+    <string name="app_name">Event Signage</string>
+    <string name="main_current_session_button">Display Current Session</string>
+    <string name="main_room_sessions_button">Display Upcoming Sessions</string>
+    <string name="main_event_stats_button">Display Event Stats</string>
+    <string name="search_session_name">Search Session Name</string>
 </resources>
