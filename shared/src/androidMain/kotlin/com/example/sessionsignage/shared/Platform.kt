@@ -26,11 +26,9 @@ actual class Platform actual constructor() {
     }
 
     actual fun formatDay(time: String): String {
-        val date = requireNotNull(iso8601Format.parse(time))
-        return dateFormat.format(date)
+        return String.format("%s", dateFormat.format(requireNotNull(iso8601Format.parse(time))))
     }
     actual fun formatTime(time: String): String {
-        val date = requireNotNull(iso8601Format.parse(time))
-        return timeFormat.format(date)
+        return String.format("%s", timeFormat.format(requireNotNull(iso8601Format.parse(time))).toLowerCase())
     }
 }

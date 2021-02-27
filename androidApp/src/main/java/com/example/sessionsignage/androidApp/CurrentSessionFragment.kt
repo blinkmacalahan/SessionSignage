@@ -28,9 +28,25 @@ class CurrentSessionFragment: Fragment() {
 
     private fun updateView(view: View) {
         val title: TextView = view.findViewById(R.id.session_title)
+        val date: TextView = view.findViewById(R.id.current_session_date)
+        val time: TextView = view.findViewById(R.id.current_session_time)
+        val desc: TextView = view.findViewById(R.id.session_desc)
         lifecycleScope.launchWhenCreated {
             sdk = SessionSignageSDK(DatabaseDriverFactory(this@CurrentSessionFragment.requireContext()))
             val sessions = sdk.getSessionOverviews()
+            val currentSession = sessions[0]
+            title.text = currentSession.name
+            date.text = platform.formatDay(currentSession.startTime)
+            time.text = platform.formatTime(currentSession.startTime)
+            desc.text = currentSession.desc
+        }
+    }
+
+    fun sessions() {
+        lifecycleScope.launchWhenCreated {
+            sdk = SessionSignageSDK(DatabaseDriverFactory(this@CurrentSessionFragment.requireContext()))
+            val sessions = sdk.getSessionOverviews()
+            val currentSession = sessions[0]
             val builder = StringBuilder()
             for (session in sessions) {
                 builder.append(session.name)
@@ -39,7 +55,7 @@ class CurrentSessionFragment: Fragment() {
                 builder.append("\n")
             }
             withContext(Dispatchers.Main) {
-                title.text = builder.toString().trim()
+                //title.text = builder.toString().trim()
             }
 
 //            // Listen for updates to a particular session

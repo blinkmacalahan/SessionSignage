@@ -13,6 +13,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/app_name"
+      android:textColor="@color/colorText"
       android:textSize="25sp"
       android:gravity="center_horizontal"
       app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +24,7 @@
       android:id="@+id/main_frame_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:layout_margin="25dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
@@ -31,7 +33,7 @@
     <LinearLayout
         android:id="@+id/main_button_list"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="end"
         android:gravity="center"
         android:orientation="vertical">
