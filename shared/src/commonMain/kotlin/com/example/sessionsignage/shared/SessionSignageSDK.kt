@@ -19,7 +19,10 @@ class SessionSignageSDK(databaseDriverFactory: DatabaseDriverFactory) {
         return if (cachedSessions.isNotEmpty() && !forceReload) {
             cachedSessions
         } else {
-            syncSessions(api, database)
+            syncSessions(api, database).map {
+                Session(it.id, it.name, it.startTime, it.endTime, it.desc, it.location,
+                    it.isRecorded, it.bannerUrl, it.speakers, it.seatingInfo, it.tags)
+            }
         }
     }
 

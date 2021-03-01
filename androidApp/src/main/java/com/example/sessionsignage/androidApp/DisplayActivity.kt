@@ -1,58 +1,54 @@
 package com.example.sessionsignage.androidApp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sessionsignage.shared.SessionSignageSDK
 import com.example.sessionsignage.shared.cache.DatabaseDriverFactory
-import com.example.sessionsignage.shared.cache.Session
-import com.example.sessionsignage.shared.sessionEntities.SessionOverviewItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class DisplayActivity : AppCompatActivity() {
 
     private lateinit var sdk: SessionSignageSDK
-    private var sessions: List<Session>? = null
-    private var sessionsOverview: List<SessionOverviewItem>? = null
-    private var currentSession: Session? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
 
-        getSessions()
+        val displayOption = intent.extras?.getInt(DISPLAY_OPTION)
 
-        when(intent.extras?.getInt(DISPLAY_OPTION)) {
-            1 -> {
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.display_root,
-                    CurrentSessionFragment.newInstance(currentSession),
-                    CurrentSessionFragment.TAG
-                ).commit()
-            }
-            2 -> {
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.display_root,
-                    RoomSessionsFragment.newInstance(sessionsOverview.orEmpty()),
-                    RoomSessionsFragment.TAG
-                ).commit()
-            }
-            3 -> {}
-        }
-    }
-
-    private fun getSessions(): List<Session> {
-        var sessions: List<Session>? = null
         lifecycleScope.launchWhenCreated {
             sdk = SessionSignageSDK(DatabaseDriverFactory(this@DisplayActivity))
+            val sessionsList = sdk.getSessions()
+            val sessionsOverviewList = sdk.getSessionOverviews()
             withContext(Dispatchers.Main) {
-                sessions = sdk.getSessions()
-                sessionsOverview = sdk.getSessionOverviews()
-                currentSession = sessions.orEmpty()[0]
+                when(displayOption) {
+                    1 -> {
+                        supportFragmentManager.beginTransaction().replace(
+                                R.id.display_root,
+                                CurrentSessionFragment.newInstance(sessionsList[0]),
+                                CurrentSessionFragment.TAG
+                        ).commit()
+                    }
+                    2 -> {
+                        supportFragmentManager.beginTransaction().replace(
+                                R.id.display_root,
+                                RoomSessionsFragment.newInstance(sessionsOverviewList),
+                                RoomSessionsFragment.TAG
+                        ).commit()
+                    }
+                    3 -> {
+                        supportFragmentManager.beginTransaction().replace(
+                                R.id.display_root,
+                                EventStatsFragment.newInstance(),
+                                EventStatsFragment.TAG
+                        ).commit()
+                    }
+                }
             }
         }
-        return sessions.orEmpty()
     }
 
     fun sessions() {
