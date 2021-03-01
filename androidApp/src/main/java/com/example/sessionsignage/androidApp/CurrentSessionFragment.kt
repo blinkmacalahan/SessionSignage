@@ -6,75 +6,46 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.sessionsignage.shared.Platform
-import com.example.sessionsignage.shared.SessionSignageSDK
-import com.example.sessionsignage.shared.cache.DatabaseDriverFactory
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.example.sessionsignage.shared.cache.Session
 
-class CurrentSessionFragment: Fragment() {
+class CurrentSessionFragment(private val currentSession: Session?): Fragment() {
 
     private val platform = Platform()
-    private lateinit var sdk: SessionSignageSDK
+    private lateinit var tagAdapter: TagAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.current_session_fragment, container, false)
+        val tagRecyclerView: RecyclerView = view.findViewById(R.id.current_session_tags_rv)
+        tagAdapter = TagAdapter(currentSession?.tags.orEmpty())
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        tagRecyclerView.layoutManager = layoutManager
+        tagRecyclerView.adapter = tagAdapter
         updateView(view)
         return view
     }
 
     private fun updateView(view: View) {
-        val title: TextView = view.findViewById(R.id.session_title)
+        val title: TextView = view.findViewById(R.id.current_session_title)
         val date: TextView = view.findViewById(R.id.current_session_date)
         val time: TextView = view.findViewById(R.id.current_session_time)
-        val desc: TextView = view.findViewById(R.id.session_desc)
-        lifecycleScope.launchWhenCreated {
-            sdk = SessionSignageSDK(DatabaseDriverFactory(this@CurrentSessionFragment.requireContext()))
-            val sessions = sdk.getSessionOverviews()
-            val currentSession = sessions[0]
-            title.text = currentSession.name
-            date.text = platform.formatDay(currentSession.startTime)
-            time.text = platform.formatTime(currentSession.startTime)
-            desc.text = currentSession.desc
-        }
-    }
-
-    fun sessions() {
-        lifecycleScope.launchWhenCreated {
-            sdk = SessionSignageSDK(DatabaseDriverFactory(this@CurrentSessionFragment.requireContext()))
-            val sessions = sdk.getSessionOverviews()
-            val currentSession = sessions[0]
-            val builder = StringBuilder()
-            for (session in sessions) {
-                builder.append(session.name)
-                builder.append(": ")
-                builder.append(platform.formatSessionTime(session.startTime, session.endTime))
-                builder.append("\n")
-            }
-            withContext(Dispatchers.Main) {
-                //title.text = builder.toString().trim()
-            }
-
-//            // Listen for updates to a particular session
-//            launch {
-//                sdk.getObservableSessionWithId("a8ca402e-c376-4daa-93df-6b5cf28b5537").watch {
-//                    Log.d("CRR", "session $it")
-//                }
-//            }
-//            // Code to update the session
-//            delay(2000)
-//            sdk.updateSession("a8ca402e-c376-4daa-93df-6b5cf28b5537")
-//            delay(2000)
-//            sdk.updateSession("a8ca402e-c376-4daa-93df-6b5cf28b5537")
-        }
+        val location: TextView = view.findViewById(R.id.current_session_location)
+        title.text = currentSession?.name
+        date.text = platform.formatDay(currentSession?.startTime ?: "")
+        time.text = platform.formatTime(currentSession?.startTime ?: "")
+        location.text = currentSession?.desc
     }
 
     companion object {
-        fun newInstance(): CurrentSessionFragment {
-            return CurrentSessionFragment()
+        const val TAG = "current_session_tag"
+
+        fun newInstance(currentSession: Session?): CurrentSessionFragment {
+            return CurrentSessionFragment(currentSession)
         }
     }
+
 }
