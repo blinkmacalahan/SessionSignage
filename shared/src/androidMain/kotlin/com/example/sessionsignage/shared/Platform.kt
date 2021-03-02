@@ -24,4 +24,13 @@ actual class Platform actual constructor() {
             timeFormat.format(endDate).toLowerCase()
         )
     }
+
+    actual fun formatDay(time: String): String {
+        val date = requireNotNull(iso8601Format.parse(time))
+        return dateFormat.format(date)
+    }
+    actual fun formatTime(time: String): String {
+        val date = requireNotNull(iso8601Format.parse(time))
+        return timeFormat.format(date)
+    }
 }
