@@ -47,6 +47,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         return dbQuery.selectSessionsForLocation(location, ::mapSession).executeAsList()
     }
 
+    internal fun getAllRooms(): List<String> {
+        return dbQuery.getAllRooms().executeAsList()
+    }
+
     private fun mapSession(
         id: String,
         name: String,

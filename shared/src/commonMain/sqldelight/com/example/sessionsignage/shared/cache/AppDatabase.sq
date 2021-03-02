@@ -51,6 +51,11 @@ FROM Session
 WHERE Session.location = ?
 ORDER BY Session.startTime ASC;
 
+getAllRooms:
+SELECT DISTINCT Session.location
+FROM Session
+ORDER BY Session.location ASC;
+
 updateSession:
 UPDATE Session
 SET name = ?

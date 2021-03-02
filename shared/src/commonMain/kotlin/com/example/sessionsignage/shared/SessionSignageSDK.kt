@@ -48,6 +48,10 @@ class SessionSignageSDK(databaseDriverFactory: DatabaseDriverFactory) {
         return database.getSessionsForLocation(location)
     }
 
+    @Throws(Exception::class) suspend fun getAllRooms(): List<String> {
+        return database.getAllRooms()
+    }
+
     @Throws(Exception::class) suspend fun updateSession(sessionId: String) {
         database.updateSession(sessionId)
     }
