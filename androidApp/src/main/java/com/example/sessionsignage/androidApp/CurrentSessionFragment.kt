@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,6 +39,7 @@ class CurrentSessionFragment(private val currentSession: Session): Fragment() {
     }
 
     private fun updateView(view: View) {
+        val banner: ImageView = view.findViewById(R.id.current_session_banner)
         val title: TextView = view.findViewById(R.id.current_session_title)
         val date: TextView = view.findViewById(R.id.current_session_date)
         val time: TextView = view.findViewById(R.id.current_session_time)

@@ -48,11 +48,18 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
+    <ImageView
+        android:id="@+id/current_session_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/divider"/>
+
     <TextView
         android:id="@+id/current_session_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/current_session_banner"
         android:layout_toEndOf="@id/divider"
         android:layout_marginBottom="5dp"
         android:textSize="30sp"
