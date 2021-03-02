@@ -2,7 +2,6 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/current_session_view"
     android:layout_width="match_parent"
@@ -21,9 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:textColor="@color/colorText"
-            android:textSize="15sp"
+            android:textSize="18sp"
             tools:text="Mon. March 1"/>
 
         <TextView
@@ -31,9 +31,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/current_session_date"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:textColor="@color/colorText"
-            android:textSize="25sp"
+            android:textSize="27sp"
             tools:text="4:00PM"/>
 
     </RelativeLayout>
@@ -53,7 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@id/divider"
-        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:textSize="30sp"
         android:textColor="@color/colorText"
         tools:text="Session"/>
 
@@ -73,6 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/current_session_title"
         android:layout_toEndOf="@id/current_session_location"
+        android:layout_marginStart="5dp"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -87,6 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/current_session_location"
-        android:layout_toEndOf="@id/divider"/>
+        android:layout_toEndOf="@id/divider"
+        android:layout_marginTop="15dp"/>
 
 </RelativeLayout>

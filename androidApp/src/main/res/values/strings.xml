@@ -5,4 +5,6 @@
     <string name="main_room_sessions_button">Display Upcoming Sessions</string>
     <string name="main_event_stats_button">Display Event Stats</string>
     <string name="search_session_name">Search Session Name</string>
+    <string name="speakers">Speakers</string>
+    <string name="seating">Seating</string>
 </resources>
