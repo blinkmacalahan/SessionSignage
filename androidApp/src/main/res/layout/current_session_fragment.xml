@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/current_session_title"
         android:layout_toEndOf="@id/current_session_location"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView

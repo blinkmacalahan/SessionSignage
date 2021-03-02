@@ -1,18 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/seating_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:textSize="20sp"
         android:textColor="@color/colorText"
         android:text="@string/seating"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/seating_open_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seating_title"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/colorText"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/seating_open_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seating_open_count"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="25dp"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        android:text="@string/open_seats"/>
+
+    <TextView
+        android:id="@+id/seating_checked_in_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seating_title"
+        android:layout_toEndOf="@id/seating_open_label"
+        android:textColor="@color/colorText"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/seating_checked_in_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seating_checked_in_count"
+        android:layout_toEndOf="@id/seating_open_label"
+        android:layout_marginEnd="25dp"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        android:text="@string/checked_in"/>
+
+    <TextView
+        android:id="@+id/seating_reserved_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seating_title"
+        android:layout_toEndOf="@id/seating_checked_in_label"
+        android:textColor="@color/colorText"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/seating_reserved_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seating_reserved_count"
+        android:layout_toEndOf="@id/seating_checked_in_label"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        android:text="@string/reserved"/>
+
+</RelativeLayout>

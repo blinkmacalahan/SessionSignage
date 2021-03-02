@@ -7,4 +7,7 @@
     <string name="search_session_name">Search Session Name</string>
     <string name="speakers">Speakers</string>
     <string name="seating">Seating</string>
+    <string name="open_seats">Open Seats</string>
+    <string name="checked_in">Checked In</string>
+    <string name="reserved">Reserved</string>
 </resources>

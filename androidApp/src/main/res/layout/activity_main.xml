@@ -40,7 +40,7 @@
 
       <androidx.appcompat.widget.AppCompatButton
           android:id="@+id/main_current_session_button"
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/main_current_session_button"
           style="@style/MainButtonStyle"
@@ -50,13 +50,14 @@
           android:id="@+id/main_room_sessions_button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:paddingHorizontal="3dp"
           android:text="@string/main_room_sessions_button"
           style="@style/MainButtonStyle"
           tools:text="Display Upcoming Sessions" />
 
       <androidx.appcompat.widget.AppCompatButton
           android:id="@+id/main_event_stats_button"
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/main_event_stats_button"
           style="@style/MainButtonStyle"

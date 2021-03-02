@@ -69,8 +69,18 @@ class CurrentSessionFragment(private val currentSession: Session): Fragment() {
         val layoutInflater = LayoutInflater.from(context)
         val descriptionView = layoutInflater.inflate(R.layout.session_description, null)
         descriptionView.findViewById<TextView>(R.id.session_desc_text).text = currentSession.desc
+
         val speakerView = layoutInflater.inflate(R.layout.current_session_speakers, null)
+        val speakerRecyclerView: RecyclerView = speakerView.findViewById(R.id.speaker_rv)
+        val speakerLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        speakerRecyclerView.layoutManager = speakerLayoutManager
+        val speakerAdapter = SpeakerAdapter(currentSession.speakers)
+        speakerRecyclerView.adapter = speakerAdapter
+
         val seatingView = layoutInflater.inflate(R.layout.current_session_seating, null)
+        seatingView.findViewById<TextView>(R.id.seating_open_count).text = currentSession.seatingInfo.open.toString()
+        seatingView.findViewById<TextView>(R.id.seating_checked_in_count).text = currentSession.seatingInfo.checkedIn.toString()
+        seatingView.findViewById<TextView>(R.id.seating_reserved_count).text = currentSession.seatingInfo.reserved.toString()
         return listOf(descriptionView, speakerView, seatingView)
     }
 
