@@ -26,23 +26,23 @@ class DisplayActivity : AppCompatActivity() {
                 when(displayOption) {
                     1 -> {
                         supportFragmentManager.beginTransaction().replace(
-                                R.id.display_root,
-                                CurrentSessionFragment.newInstance(sessionsList[0]),
-                                CurrentSessionFragment.TAG
+                            R.id.display_root,
+                            CurrentSessionFragment.newInstance(sessionsList[0]),
+                            CurrentSessionFragment.TAG
                         ).commit()
                     }
                     2 -> {
                         supportFragmentManager.beginTransaction().replace(
-                                R.id.display_root,
-                                RoomSessionsFragment.newInstance(sessionsOverviewList),
-                                RoomSessionsFragment.TAG
+                            R.id.display_root,
+                            RoomSessionsFragment.newInstance(sessionsOverviewList),
+                            RoomSessionsFragment.TAG
                         ).commit()
                     }
                     3 -> {
                         supportFragmentManager.beginTransaction().replace(
-                                R.id.display_root,
-                                EventStatsFragment.newInstance(),
-                                EventStatsFragment.TAG
+                            R.id.display_root,
+                            EventStatsFragment.newInstance(sessionsList),
+                            EventStatsFragment.TAG
                         ).commit()
                     }
                 }

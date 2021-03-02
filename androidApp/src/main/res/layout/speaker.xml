@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/speaker_image"
@@ -10,20 +12,25 @@
         android:importantForAccessibility="no"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginHorizontal="15dp"/>
+        android:layout_marginHorizontal="15dp"
+        android:background="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/speaker_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/speaker_image"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/speaker_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/speaker_image"
-        android:layout_below="@id/speaker_name"/>
+        android:layout_below="@id/speaker_name"
+        android:textColor="@color/colorText"
+        android:textSize="15sp"/>
 
 </RelativeLayout>

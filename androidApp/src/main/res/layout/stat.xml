@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginVertical="15dp">
+
+    <TextView
+        android:id="@+id/stat_session_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginVertical="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        tools:text="Mon. March 1, 2:00PM"/>
+
+    <TextView
+        android:id="@+id/stat_session_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_session_date"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorText"
+        android:textSize="35sp"
+        tools:text="New Session"/>
+
+    <TextView
+        android:id="@+id/stat_session_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_session_name"
+        android:layout_alignParentStart="true"
+        android:layout_marginVertical="5dp"
+        android:layout_marginEnd="15dp"
+        android:textColor="@color/colorText"
+        android:textSize="15sp"
+        tools:text="Location"/>
+
+    <LinearLayout
+        android:id="@+id/stat_session_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_session_name"
+        android:layout_toEndOf="@id/stat_session_location"
+        android:layout_marginVertical="5dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stats_tags_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/stat_open_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_session_location"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/colorText"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/stat_open_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_open_count"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="80dp"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        android:text="@string/open_seats"/>
+
+    <TextView
+        android:id="@+id/stat_checked_in_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_session_location"
+        android:layout_toEndOf="@id/stat_open_label"
+        android:textColor="@color/colorText"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/stat_checked_in_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_checked_in_count"
+        android:layout_toEndOf="@id/stat_open_label"
+        android:layout_marginEnd="80dp"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        android:text="@string/checked_in"/>
+
+    <TextView
+        android:id="@+id/stat_reserved_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_session_location"
+        android:layout_toEndOf="@id/stat_checked_in_label"
+        android:textColor="@color/colorText"
+        android:textSize="35sp"/>
+
+    <TextView
+        android:id="@+id/stat_reserved_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stat_reserved_count"
+        android:layout_toEndOf="@id/stat_checked_in_label"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        android:text="@string/reserved"/>
+
+</RelativeLayout>
