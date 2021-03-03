@@ -1,6 +1,9 @@
 package com.example.sessionsignage.androidApp
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +11,16 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sessionsignage.shared.Platform
 import com.example.sessionsignage.shared.cache.Session
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import java.net.URL
 import java.util.Timer
 import java.util.TimerTask
 
@@ -33,6 +40,8 @@ class CurrentSessionFragment(private val currentSession: Session): Fragment() {
         tagRecyclerView.layoutManager = layoutManager
         tagAdapter = TagAdapter(currentSession.tags)
         tagRecyclerView.adapter = tagAdapter
+        val speakers = currentSession.speakers
+        Log.d("KAT", "create speakerCount: " + speakers.size.toString())
         sessionInfoViews = getSlideshowViews()
         updateView(view)
         return view
@@ -45,6 +54,13 @@ class CurrentSessionFragment(private val currentSession: Session): Fragment() {
         val time: TextView = view.findViewById(R.id.current_session_time)
         val location: TextView = view.findViewById(R.id.current_session_location)
         val frameLayout: FrameLayout = view.findViewById(R.id.current_session_frame)
+        val url = URL(currentSession.bannerUrl)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val bitmap: Bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream())
+            withContext(Dispatchers.Main) {
+                banner.setImageBitmap(bitmap)
+            }
+        }
         title.text = currentSession.name
         date.text = platform.formatDay(currentSession.startTime)
         time.text = platform.formatTime(currentSession.startTime)
@@ -77,7 +93,9 @@ class CurrentSessionFragment(private val currentSession: Session): Fragment() {
         val speakerLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         speakerRecyclerView.layoutManager = speakerLayoutManager
         val speakerAdapter = SpeakerAdapter(currentSession.speakers)
+        Log.d("KAT", "create speakerCount: " + currentSession.speakers.size.toString())
         speakerRecyclerView.adapter = speakerAdapter
+        speakerAdapter.notifyDataSetChanged()
 
         val seatingView = layoutInflater.inflate(R.layout.current_session_seating, null)
         seatingView.findViewById<TextView>(R.id.seating_open_count).text = currentSession.seatingInfo.open.toString()

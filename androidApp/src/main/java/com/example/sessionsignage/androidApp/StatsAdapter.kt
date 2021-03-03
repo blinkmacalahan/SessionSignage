@@ -37,7 +37,9 @@ class StatsAdapter(private val sessions: List<Session>, private val listener: On
     override fun onBindViewHolder(holder: StatsViewHolder, position: Int) {
         val session = sessions[position]
 
-        holder.date.text = Platform().formatSessionTime(session.startTime, session.endTime)
+        if (session.startTime.isNotBlank() && session.endTime.isNotBlank()) {
+            holder.date.text = Platform().formatSessionTime(session.startTime, session.endTime)
+        }
         holder.name.text = session.name
         holder.location.text = session.location
         holder.openCount.text = session.seatingInfo.open.toString()
