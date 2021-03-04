@@ -22,12 +22,12 @@ class DisplayActivity : AppCompatActivity() {
 
         lifecycleScope.launchWhenCreated {
             sdk = SessionSignageSDK(DatabaseDriverFactory(this@DisplayActivity))
-            val sessionsList = sdk.getSessions()
-            val sessionsOverviewList = sdk.getSessionOverviews()
-            val sessionsForRoom: List<Session> = if (room.isNotEmpty()) {
-                sdk.getSessionsForLocation(room)
+            val sessionsForRoom = sdk.getSessionsForLocation(room)
+            val allSessions = sdk.getSessions()
+            val sessionsList = if (room.isNotEmpty() && sessionsForRoom.isNotEmpty()) {
+                sessionsForRoom
             } else {
-                listOf()
+                allSessions
             }
             withContext(Dispatchers.Main) {
                 when(displayOption) {
@@ -41,14 +41,14 @@ class DisplayActivity : AppCompatActivity() {
                     2 -> {
                         supportFragmentManager.beginTransaction().replace(
                             R.id.display_root,
-                            RoomSessionsFragment.newInstance(sessionsForRoom),
+                            RoomSessionsFragment.newInstance(sessionsList),
                             RoomSessionsFragment.TAG
                         ).commit()
                     }
                     3 -> {
                         supportFragmentManager.beginTransaction().replace(
                             R.id.display_root,
-                            EventStatsFragment.newInstance(sessionsList),
+                            EventStatsFragment.newInstance(allSessions),
                             EventStatsFragment.TAG
                         ).commit()
                     }
