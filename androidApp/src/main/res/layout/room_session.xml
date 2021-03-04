@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/session_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        tools:text="Mon. March 1"/>
+
+    <TextView
+        android:id="@+id/session_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/session_date"
+        android:layout_alignEnd="@id/session_date"
+        android:gravity="center"
+        android:textColor="@color/colorText"
+        android:textSize="27sp"
+        tools:text="4:00PM"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1.5dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        android:layout_toEndOf="@id/session_time"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <TextView
+        android:id="@+id/session_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/divider"
+        android:layout_marginBottom="5dp"
+        android:textSize="30sp"
+        android:textColor="@color/colorText"
+        tools:text="Session"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/session_title"
+        android:layout_toEndOf="@id/divider"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/session_tags_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sessionsignage.shared.SessionSignageSDK
 import com.example.sessionsignage.shared.cache.DatabaseDriverFactory
-import com.example.sessionsignage.shared.cache.Session
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -41,7 +40,7 @@ class DisplayActivity : AppCompatActivity() {
                     2 -> {
                         supportFragmentManager.beginTransaction().replace(
                             R.id.display_root,
-                            RoomSessionsFragment.newInstance(sessionsList),
+                            RoomSessionsFragment.newInstance(room, sessionsList),
                             RoomSessionsFragment.TAG
                         ).commit()
                     }

@@ -25,7 +25,7 @@ class TagAdapter(private val tags: List<Tag>): RecyclerView.Adapter<TagAdapter.T
         if (tag.color == null) {
             holder.color.visibility = View.INVISIBLE
         }
-        holder.color.setBackgroundColor(Color.parseColor(tag.color))
+        holder.color.background.setTint(Color.parseColor(tag.color))
         holder.name.text = tag.name
     }
 
