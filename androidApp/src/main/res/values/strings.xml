@@ -4,7 +4,7 @@
     <string name="main_current_session_button">Display Current Session</string>
     <string name="main_room_sessions_button">Display Upcoming Sessions</string>
     <string name="main_event_stats_button">Display Event Stats</string>
-    <string name="search_session_name">Search Session Name</string>
+    <string name="select_room">Select a Room</string>
     <string name="speakers">Speakers</string>
     <string name="seating">Seating</string>
     <string name="open_seats">Open Seats</string>

@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sessionsignage.shared.sessionEntities.SessionOverviewItem
+import com.example.sessionsignage.shared.cache.Session
 
-class RoomSessionsFragment(private val sessions: List<SessionOverviewItem>): Fragment() {
+class RoomSessionsFragment(private val sessions: List<Session>): Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -22,7 +22,7 @@ class RoomSessionsFragment(private val sessions: List<SessionOverviewItem>): Fra
     companion object {
         const val TAG = "room_sessions_tag"
 
-        fun newInstance(sessions: List<SessionOverviewItem>): RoomSessionsFragment {
+        fun newInstance(sessions: List<Session>): RoomSessionsFragment {
             return RoomSessionsFragment(sessions)
         }
     }
